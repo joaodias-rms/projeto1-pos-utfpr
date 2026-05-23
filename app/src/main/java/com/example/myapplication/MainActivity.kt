@@ -94,8 +94,7 @@ class MainActivity : AppCompatActivity() {
     companion object {
     fun calcularIMCLocale(peso: Double, altura: Double): Double {
         val language = Locale.getDefault().language
-        var imc = 0.0
-        imc = if (language.equals("en")) {
+        val imc: Double = if (language.equals("en")) {
             783 * (peso / altura.pow(2))
         } else {
             peso / altura.pow(2)
