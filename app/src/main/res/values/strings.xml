@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="za_warudo">Za Warudo!</string>
+    <string name="peso">Peso</string>
+    <string name="altura">Altura:</string>
+    <string name="peso1">Peso:</string>
+    <string name="calcular">Calcular</string>
+    <string name="limpar">Limpar</string>
+    <string name="imc">IMC:</string>
+    <string name="peso_em_kg">Peso em KG</string>
+    <string name="altura_em_m">Altura em m</string>
+    <string name="_0_0">0.0</string>
+    <string name="idade">Idade</string>
+    <string name="tmb">TMB:</string>
+    <string name="tmb_0_0">0.0</string>
+    <string name="idade_em_anos">Idade em anos</string>
+    <string name="condi_o">Condição:</string>
+</resources>
