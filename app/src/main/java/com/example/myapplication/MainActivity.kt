@@ -9,6 +9,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import java.util.Locale
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
@@ -65,7 +66,7 @@ class MainActivity : AppCompatActivity() {
         calcular.setOnLongClickListener{
             Toast.makeText(
                 this,
-                "Botão para calcular o IMC",
+                getString(R.string.bot_o_para_calcular_o_imc),
                 Toast.LENGTH_SHORT)
                 .show()
             true
@@ -87,22 +88,57 @@ class MainActivity : AppCompatActivity() {
         pesoInput.requestFocus()
     }
 
+
+
+
+    companion object {
+    fun calcularIMCLocale(peso: Double, altura: Double): Double {
+        val language = Locale.getDefault().language
+        var imc = 0.0
+        imc = if (language.equals("en")) {
+            783 * (peso / altura.pow(2))
+        } else {
+            peso / altura.pow(2)
+        }
+        return imc
+    }
+        fun calcularTMBLocale(peso: Double, altura: Double, idade: Int): Double {
+            val language = Locale.getDefault().language
+            return if (language.equals("en")){
+                66.0 + (6.2 * peso) + (12.7 * altura) - (6.76 * idade)
+            } else{
+                88.36 + (13.4 * peso) + (4.8 * altura) - (5.7 * idade)
+            }
+        }
+        fun obterStatusImcResId(imc: Double): Int {
+            return when {
+                imc < 18.5 -> R.string.abaixo_peso
+                imc < 25.0 -> R.string.peso_normal
+                imc < 30.0 -> R.string.sobrepeso
+                imc < 35.0 -> R.string.obesidade_grau_1
+                imc < 40.0 -> R.string.obesidade_grau_2
+                else -> R.string.obesidade_grau_3
+            }
+        }
+    }
     private fun calcularIMC() {
         val peso = pesoInput.text.toString().toDoubleOrNull()
         val altura = alturaInput.text.toString().toDoubleOrNull()
+
         if (peso != null && altura != null) {
-            val imc = peso / altura.pow(2)
+            val imc = calcularIMCLocale(peso, altura)
             imcResult.text = String.format("%.2f", imc)
-            val classificacao = when {
-                imc < 18.5 -> "Abaixo do peso"
-                imc < 25.0 -> "Peso normal"
-                imc < 30.0 -> "Sobrepeso"
-                imc < 35.0 -> "Obesidade Grau I"
-                imc < 40.0 -> "Obesidade Grau II"
-                else -> "Obesidade Grau III"
+            val resIdClassificacao = when {
+                imc < 18.5 -> R.string.abaixo_peso
+                imc < 25.0 -> R.string.peso_normal
+                imc < 30.0 -> R.string.sobrepeso
+                imc < 35.0 -> R.string.obesidade_grau_1
+                imc < 40.0 -> R.string.obesidade_grau_2
+                else -> R.string.obesidade_grau_3
             }
 
-            statusImcResult.text = classificacao
+            val textoClassificacao = getString(resIdClassificacao)
+            statusImcResult.text = getString(R.string.condicao_label, textoClassificacao)
         }
     }
 
@@ -110,17 +146,12 @@ class MainActivity : AppCompatActivity() {
         val peso = pesoInput.text.toString().toDoubleOrNull()
         val altura = alturaInput.text.toString().toDoubleOrNull()
         val idade = idadeInput.text.toString().toIntOrNull()
-        if(peso == null ){
-            pesoInput.error = "Peso deve ser preeenchido"
-        }
-        if(altura == null){
-            alturaInput.error = "Altura deve ser preenchida"
-        }
-        if(idade == null){
-            idadeInput.error = "Idade deve ser preenchida"
-        }
+        if(peso == null ) pesoInput.error = R.string.peso_error.toString()
+        if(altura == null) alturaInput.error = R.string.altura_error.toString()
+        if(idade == null) idadeInput.error = R.string.idade_error.toString()
+
         if (peso != null && altura != null && idade != null) {
-            val tmb = 88.36 + (13.4 * peso) + (4.8 * altura) - (5.7 * idade)
+            val tmb = calcularTMBLocale(peso, altura, idade)
             tmbResult.text = String.format("%.2f", tmb).plus(" kcal/dia")
         }
     }

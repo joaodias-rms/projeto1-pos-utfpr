@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>\
+        <string name="app_name">My Application</string>
+        <string name="za_warudo">Za Warudo!</string>
+        <string name="peso">Weight</string>
+        <string name="altura">Height:</string>
+        <string name="peso1">Weight:</string>
+        <string name="calcular">Calculate</string>
+        <string name="limpar">Clean</string>
+        <string name="imc">BMI:</string>
+        <string name="peso_em_kg">Weight in Pounds</string>
+        <string name="altura_em_m">Height in m</string>
+        <string name="_0_0">0.0</string>
+        <string name="idade">Age</string>
+        <string name="tmb">BMR:</string>
+        <string name="tmb_0_0">0.0</string>
+        <string name="idade_em_anos">Age in years</string>
+        <string name="condi_o">Condition:</string>
+        <string name="altura_error">Height must be filled</string>
+        <string name="peso_error">Weight must be filled</string>
+        <string name="idade_error">Age must be filled</string>
+        <string name="abaixo_peso">Underweight</string>
+        <string name="peso_normal">Normal weight</string>
+        <string name="sobrepeso">Overweight</string>
+        <string name="obesidade_grau_1">Obesity Class I</string>
+        <string name="obesidade_grau_2">Obesity Class II</string>
+        <string name="obesidade_grau_3">Obesity Class III</string>
+        <string name="condicao_label">Condition: %s</string>
+        <string name="bot_o_para_calcular_o_imc">Button to calculate the BMI</string>
+</resources>

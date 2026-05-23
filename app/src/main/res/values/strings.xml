@@ -15,4 +15,15 @@
     <string name="tmb_0_0">0.0</string>
     <string name="idade_em_anos">Idade em anos</string>
     <string name="condi_o">Condição:</string>
+    <string name="altura_error">Altura deve ser preenchida</string>
+    <string name="peso_error">Peso deve ser preenchido</string>
+    <string name="idade_error">Idade deve ser preenchida</string>
+    <string name="abaixo_peso">Abaixo do peso</string>
+    <string name="peso_normal">Peso normal</string>
+    <string name="sobrepeso">Sobrepeso</string>
+    <string name="obesidade_grau_1">Obesidade Grau I</string>
+    <string name="obesidade_grau_2">Obesidade Grau II</string>
+    <string name="obesidade_grau_3">Obesidade Grau III</string>
+    <string name="condicao_label">Condição: %s</string>
+    <string name="bot_o_para_calcular_o_imc">Botão para calcular o IMC</string>
 </resources>
